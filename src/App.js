@@ -5,13 +5,25 @@ import clienteAxios from './config/axios';
 const App = () => {
 
     //State para almacenar los datos de respuesta de la API.
-    const [ data, setData ] = useState({});
+    const [ data, setData ] = useState({
+      anime: '',
+      quote: '',
+      character: '',
+      hashtag: ''
+    });
 
     //Funcion para obtener una fras random de la pai de animechan.
     const obtenerFrase = async () => {
       try {
         const respuesta = await clienteAxios.get('/random');
-        setData(respuesta.data);
+        setData({
+          anime: respuesta.data.anime,
+          quote: respuesta.data.quote,
+          character: respuesta.data.character,
+          hashtag: respuesta.data.anime.replace(/ /g, '')
+        });
+
+      
       } catch (error) {
         console.log(error);
       }
