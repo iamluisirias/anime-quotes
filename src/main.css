@@ -11464,4 +11464,17 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
+
+.otro-blockquote::before {
+  font-family: Arial;
+  content: "\201C";
+  font-size: 4em;
+  position: absolute;
+  left: 10px;
+  top: -12px;
+}
+
+.otro-blockquote::after {
+  content: '';
+}
 /*# sourceMappingURL=main.css.map */
